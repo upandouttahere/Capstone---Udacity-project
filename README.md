@@ -1,6 +1,23 @@
 # Udacity Blockchain Capstone
 
-The capstone will build upon the knowledge you have gained in the course in order to build a decentralized housing product. 
+The capstone will build upon the knowledge you have gained in the course in order to build a decentralized housing product.
+
+# Installations
+
+JSON package
+Truffle v5.1.21
+Solidity v0.5.16
+Metamask
+Infura
+
+
+1. Download the app
+2. Login to infura and MetaMask
+3. Customize infuraKey and Infura Project ID in truffle-config.js
+4. npm init and npm install package.json
+5. Run the back-end: truffe develop, compile, migrate --reset and test
+6. Migrate to Rinkeby network
+
 
 # Project Resources
 
