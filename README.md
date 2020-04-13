@@ -21,6 +21,8 @@ Infura
 5. Truffe develop, compile, migrate --reset and test
 6. Migrate to Rinkeby network
 
+### Link to OpenSea marketplace:
+insert link
 
 # Project Resources
 
