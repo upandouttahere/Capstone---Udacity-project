@@ -8,6 +8,8 @@ The capstone will build upon the knowledge you have gained in the course in orde
 JSON package
 Truffle v5.1.21
 Solidity v0.5.16
+Docker
+Zokrates
 Metamask
 Infura
 ```
