@@ -12,6 +12,7 @@ Docker
 Zokrates
 Metamask
 Infura
+OpenSea
 ```
 
 ### Installation
@@ -22,6 +23,7 @@ Infura
 4. npm init and npm install package.json
 5. Truffe develop, compile, migrate --reset and test
 6. Migrate to Rinkeby network
+7. Mint tokens
 
 ### Link to OpenSea marketplace:
 insert link
