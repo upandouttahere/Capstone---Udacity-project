@@ -27,8 +27,8 @@ OpenSea
 8. Import and trade tokens on https://rinkeby.opensea.io/
 
 ### Contract Addresses:
-0x5206e78b21Ce315ce284FB24cf05e0585A93B1d9
-0x28997fF09d52bCbdFC5FAFb1d733BC24d30b4185
+1. 0x5206e78b21Ce315ce284FB24cf05e0585A93B1d9
+2. 0x28997fF09d52bCbdFC5FAFb1d733BC24d30b4185
 
 ### Contract ABIs:
 /eth-contracts/build/contracts/SolnSquareVerifier.json
