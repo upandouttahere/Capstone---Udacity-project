@@ -1,6 +1,6 @@
 # Udacity Blockchain Capstone
 
-The capstone will build upon the knowledge you have gained in the course in order to build a decentralized housing product.
+The capstone project, building upon the knowledge gained in the course in order to build a decentralized housing product.
 
 ### Prerequisites / Software used
 
