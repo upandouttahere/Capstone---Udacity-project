@@ -8,9 +8,9 @@ The capstone project, building upon the knowledge gained in the course in order 
 JSON package
 Truffle v5.1.21
 Solidity v0.5.16
-Docker
+Docker 2.2.0.5
 Zokrates
-Metamask
+Metamask 7.7.8
 Infura
 OpenSea
 ```
@@ -27,8 +27,8 @@ OpenSea
 8. Import and trade tokens on https://rinkeby.opensea.io/
 
 ### Contract Addresses:
-1. 0x5206e78b21Ce315ce284FB24cf05e0585A93B1d9
-2. 0x28997fF09d52bCbdFC5FAFb1d733BC24d30b4185
+* SolnSquareVerifier.json: 0x00B4Fc96b1E31b52Fcc7c9fEf0Ac61246Ff60e63
+* Verifier.json: 0x5A19243F1867fA20Aac68A60296BD9f0938B38f1
 
 ### Contract ABIs:
 /eth-contracts/build/contracts/SolnSquareVerifier.json
