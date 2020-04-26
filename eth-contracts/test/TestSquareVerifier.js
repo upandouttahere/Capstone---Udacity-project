@@ -25,6 +25,7 @@ contract('Verifier', accounts => {
                 "inputs": [9, 1]
             }
             let result = await this.contract.verifyTx.call(CorrectProof.a, CorrectProof.b, CorrectProof.c, CorrectProof.inputs);
+            // line 27 leads to an error - but it is similar to line 43, which works
             assert.equal(result, true, "Proof is correct");
         })
 
