@@ -34,7 +34,7 @@ OpenSea
 /eth-contracts/build/contracts/SolnSquareVerifier.json
 
 ### Link to OpenSea marketplace:
-https://rinkeby.opensea.io/account
+https://rinkeby.opensea.io/assets/real-estate-marketplace-v15?category=real-estate-marketplace-v15
 
 # Project Resources
 
