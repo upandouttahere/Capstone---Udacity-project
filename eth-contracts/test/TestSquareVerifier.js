@@ -17,15 +17,15 @@ contract('Verifier', accounts => {
 
         it('with correct proof', async function () {
             let CorrectProof = {
-                "A":["0xef4efcf17f3d5604c65910aa571d226b1a87008789a0576f7983e5b0ee8e060", "0xbed166763a8c2c998a960da10103680ffd494063c4fa796dacd82bdc9dd2ec8"],
-                "B":
-                    [["0xad80aa9f5e4378ef0dc942e3bd724668ec58074bf6565f7d7ca2e144c4a3f5a", "0x5601a954a648e4df2326828365c7531cdaa8da5824575a5d898342f676c4f60"], ["0x9517b7585accbfd3dac84f6dbf400f624418ec13bd974a0963b9ffb5e8f7fa6", "0x1628345512b0aaca29e1f03d27d0b43055e9de4d28aeeaf1f60c66eda1710196"]],
-                
-                "C":["0x6820de3f068c288ad843e0d920481ff87d37c09838e6b00d705fdc733d26575", "0x12e04c39436202e57a66af4bba3370f974577434b3e003af649e6b61a1a31278"],
-                "input": [3, 1]
+                "proof": {
+                    "a": ["0x1ba0df5159c4c75da8a30d34e28b0a2242b9634aed77c9b41b979e6081ed5033", "0x04a81e18c8c57362b000213bce6d533055ba4f830dc76abf9c5bf37907ffbdd0"],
+                    "b": [["0x272c1132c59a11b904df2e3921eaf7b40ce948a1a24e9b36dd6e2e04cc3e9560", "0x1535e1e6c5cb4d685ef68595487910d68d8813765f422b977b53e32f8c53fc94"], ["0x26e8a26d9bd754c038c42bb9b5b32b91a0c1463aba53b03eb8e224f1230f853a", "0x2c080f65faca972f26229da56b338fc12d62261f8626ec42659bc1090e7a983d"]],
+                    "c": ["0x08c833d09a989255fa84bd16e9b4374fbf2c59f92f8b67298771b72c03e56f7f", "0x2f85944aef8c9f217463077e0d8f85fdf5546b3b570820ade0cf9c95a3feb440"]
+                },
+                "inputs": [9, 1]
             }
-            let result = await this.contract.verifyTx.call(CorrectProof.A, CorrectProof.B, CorrectProof.C, CorrectProof.input);
-            assert.equal(result, false, "Proof is not correct");
+            let result = await this.contract.verifyTx.call(CorrectProof.a, CorrectProof.b, CorrectProof.c, CorrectProof.inputs);
+            assert.equal(result, true, "Proof is correct");
         })
 
         // Test verification with incorrect proof

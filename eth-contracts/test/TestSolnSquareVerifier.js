@@ -6,13 +6,12 @@ contract('Verifier', accounts => {
     const account_one = accounts[0];
     const account_two = accounts[1];
     const proof = {
-        "proof":
-        {
-            "A":["0x712a26513f243339aa792675965b0315ca7683cb5c67fc89b9a5a24cea98ce2", "0x2a7ab188cb5917dfe0d0a13ba9987e3686de407ac54d01d4d77379fd7ddbb407"],
-            "B":[["0x23cf18b20ab000abd4115832a302c3cef49182df139bf86d0365d9f353e3303c", "0x109533641de4f8b475ecc189d4cb7b2eddbe715e39a5bfd7e48a959e3b0fdb26"], ["0x23b9cfeece4b12f98c23a0203231cc55043565e5cff6ca14b3167fb4c6ccd5d0", "0x194d83bdaade1cf929374d69b3d7ecd6722ac89f4bff10a3bc468d0fd8e9c1c9"]],
-            "C":["0x28db031ef06c2592e0bb867b6a3c41c6fb43aeb9792ed2b41f27df24c7ee4d01", "0x21a88b8aa8f9da91588167d3528139307050dec98b9377089c83549f827e0046"],
+        "proof": {
+            "a": ["0x1ba0df5159c4c75da8a30d34e28b0a2242b9634aed77c9b41b979e6081ed5033", "0x04a81e18c8c57362b000213bce6d533055ba4f830dc76abf9c5bf37907ffbdd0"],
+            "b": [["0x272c1132c59a11b904df2e3921eaf7b40ce948a1a24e9b36dd6e2e04cc3e9560", "0x1535e1e6c5cb4d685ef68595487910d68d8813765f422b977b53e32f8c53fc94"], ["0x26e8a26d9bd754c038c42bb9b5b32b91a0c1463aba53b03eb8e224f1230f853a", "0x2c080f65faca972f26229da56b338fc12d62261f8626ec42659bc1090e7a983d"]],
+            "c": ["0x08c833d09a989255fa84bd16e9b4374fbf2c59f92f8b67298771b72c03e56f7f", "0x2f85944aef8c9f217463077e0d8f85fdf5546b3b570820ade0cf9c95a3feb440"]
         },
-        "input":[3,1]
+        "inputs": [9, 1]
     }
 
     describe('test solnSquareVerifier', function () {
@@ -24,20 +23,27 @@ contract('Verifier', accounts => {
 // Test if an ERC721 token can be minted for contract - SolnSquareVerifier
 
         it('ERC721 token can be minted for contract - SolnSquareVerifier', async function () { 
-            console.log("proof",proof)
-            let v = await this.contract.mint.call(account_two, 1);
-            assert.equal(v, true, "not valid proof");
+            await this.contract.mintNewNFT(account_two, 1, a, b, c, inputs); // error: a is not defined - is it not defined in line 10?
+            assert.equal(await this.contract.ownerOf(1), account_two, "not the expected owner");
         })
 
  // Test if a new solution can be added for contract - SolnSquareVerifier
 
         it('Test if a new solution can be added for contract', async function () {
-            const { proof: { a, b, c }, inputs: input } = proof;  
-            let key = await this.contract.getVerifierKey.call(a, b, c, input);
-            let result = await this.contract.addSolution(2, account_two, key);
+            const [a, b, c, inputs] = [proof.proof.a, proof.proof.b, proof.proof.c, proof.inputs]; 
+            let key = await this.contract.getVerifierKey.call(a, b, c, inputs);
+            let result = await this.contract.addSolution(account_two, 2, key);
 
             // Test event is emitted
-            assert.equal(result.logs.length, 1, "No events were triggered.");
+            // assert.equal(result.logs.length, 1, "No events were triggered.");
+            let solutionAddedEmitted = false;
+            let logs = result.logs;
+            logs.forEach(log => {
+                if (log.event == "solutionAdded") {
+                    solutionAddedEmitted = true;
+                }
+            })
+            assert.equal(solutionAddedEmitted,true, "solutionAdded was not emitted");
         });
     });
 })
